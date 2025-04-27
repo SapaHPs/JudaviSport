@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta icon >
+    <title>JudaviSport - Ropa Deportiva de Alta Calidad</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff3e3e;
+            --secondary: #00a8e8;
+            --accent: #ffd700;
+            --dark: #111111;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 5px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 5px 0;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .dropdown {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 10px 20px;
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(255, 62, 62, 0.1);
+            color: var(--primary);
+            padding-left: 25px;
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: var(--dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .icon-btn:hover {
+            color: var(--primary);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary);
+            color: white;
+            font-size: 10px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 100px;
+            background: linear-gradient(135deg, #111111 0%, #333333 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            height: 600px;
+        }
+
+        .hero-content {
+            padding: 80px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(255, 62, 62, 0.3);
+            animation: fadeInUp 1s ease 0.4s;
+            animation-fill-mode: both;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 62, 62, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 1s ease 0.5s;
+            animation-fill-mode: both;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .hero-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .shape1 {
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            border-radius: 50%;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape2 {
+            width: 150px;
+            height: 150px;
+            background: var(--secondary);
+            border-radius: 50%;
+            top: 60%;
+            left: 15%;
+            animation-delay: 1s;
+        }
+
+        .shape3 {
+            width: 70px;
+            height: 70px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: 30%;
+            right: 30%;
+            animation-delay: 2s;
+        }
+
+        /* Featured Categories */
+        .categories {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 250px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .category-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover .category-content {
+            padding-bottom: 30px;
+        }
+
+        .category-content h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .category-content a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .category-content a:hover {
+            opacity: 1;
+        }
+
+        .category-content a i {
+            margin-left: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .category-content a:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Featured Products */
+        .products {
+            padding: 80px 0;
+            background-color: #f6f8fa;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-actions {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .product-actions {
+            bottom: 0;
+        }
+
+        .action-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .action-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            font-size: 12px;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .product-title {
+            color: var(--primary);
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .current-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .old-price {
+            font-size: 14px;
+            color: var(--gray);
+            text-decoration: line-through;
+        }
+
+        .product-rating {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stars {
+            color: #ffc107;
+        }
+
+        .rating-count {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 10% 20%, rgba(255, 62, 62, 0.05) 0%, transparent 80%);
+            z-index: 1;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(255, 62, 62, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            background-color: var(--primary);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .feature-text {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: #f6f8fa;
+        }
+
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .testimonial-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+        }
+
+        .testimonial-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-text {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--dark);
+            margin-bottom: 20px;
+            position: relative;
+            padding: 0 30px;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 50px;
+            position: absolute;
+            color: var(--primary);
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .testimonial-text::before {
+            top: -20px;
+            left: 0;
+        }
+
+        .testimonial-text::after {
+            bottom: -40px;
+            right: 0;
+        }
+
+        .testimonial-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .testimonial-position {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: var(--primary);
+            transform: scale(1.3);
+        }
+
+        /* Newsletter */
+        .newsletter {
+            padding: 80px 0;
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .newsletter p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .newsletter-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #ff1a1a;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111111;
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .footer-logo h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .footer-logo span {
+            color: var(--primary);
+        }
+
+        .footer-about p {
+            margin-bottom: 25px;
+            font-size: 14px;
+            line-height: 1.7;
+            opacity: 0.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .footer-contact li {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        .footer-contact i {
+            color: var(--primary);
+            font-size: 16px;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-bottom-links a:hover {
+            color: white;
+        }
+
+        /* ScrollToTop Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 62, 62, 0.3);
+            z-index: 999;
+        }
+
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background-color: #ff1a1a;
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .categories-grid,
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 30px;
+                box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+                transition: all 0.3s ease;
+                z-index: 999;
+                gap: 20px;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+                background-color: #f8f9fa;
+                margin-top: 10px;
+                display: none;
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .hero {
+                height: auto;
+                text-align: center;
+            }
+            
+            .hero-content {
+                padding: 50px 0;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                margin: 0 auto 30px;
+            }
+            
+            .hero-image {
+                position: relative;
+                width: 100%;
+                margin-top: 30px;
+                animation-delay: 0.2s;
+            }
+            
+            .categories-grid,
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .footer-bottom-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .categories-grid,
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                border-radius: 10px;
+            }
+            
+            .newsletter-input {
+                padding: 15px;
+                border-radius: 10px 10px 0 0;
+            }
+            
+            .newsletter-btn {
+                width: 100%;
+                padding: 15px;
+                border-radius: 0 0 10px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="logo.png" alt="JudaviSport Logo">
+                    <h1>Judavi<span>Sport</span></h1>
+                </div>
+                
+                <div class="nav-links">
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">Inicio</a>
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link">Hombres <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Camisetas</a>
+                            <a href="#" class="dropdown-item">Shorts</a>
+                            <a href="#" class="dropdown-item">Sudaderas</a>
+                            <a href="#" class="dropdown-item">Chaquetas</a>
+                            <a href="#" class="dropdown-item">Calzado</a>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link">Mujeres <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Tops</a>
+                            <a href="#" class="dropdown-item">Leggings</a>
+                            <a href="#" class="dropdown-item">Shorts</a>
+                            <a href="#" class="dropdown-item">Chaquetas</a>
+                            <a href="#" class="dropdown-item">Calzado</a>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link">Niños <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Camisetas</a>
+                            <a href="#" class="dropdown-item">Shorts</a>
+                            <a href="#" class="dropdown-item">Conjuntos</a>
+                            <a href="#" class="dropdown-item">Calzado</a>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link">Deportes <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Fútbol</a>
+                            <a href="#" class="dropdown-item">Baloncesto</a>
+                            <a href="#" class="dropdown-item">Running</a>
+                            <a href="#" class="dropdown-item">Natación</a>
+                            <a href="#" class="dropdown-item">Fitness</a>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">Contacto</a>
+                    </div>
+                </div>
+                
+                <div class="nav-icons">
+                    <button class="icon-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="icon-btn">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <button class="icon-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">3</span>
+                    </button>
+                    
+                    <button class="mobile-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-shapes">
+            <div class="shape shape1"></div>
+            <div class="shape shape2"></div>
+            <div class="shape shape3"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h2>POTENCIA TU RENDIMIENTO<br>CON JUDAVISPORT</h2>
+                <p>Descubre nuestra nueva colección diseñada para atletas de todos los niveles. Rendimiento, comodidad y estilo para llevar tu actividad física al siguiente nivel.</p>
+                <a href="#" class="btn">Comprar Ahora</a>
+                <a href="#" class="btn btn-outline">Ver Colección</a>
+            </div>
+        </div>
+        
+        <div class="hero-image">
+            <img src="retrato.png" alt="JudaviSport Collection">
+        </div>
+    </section>
+    
+    <!-- Featured Categories -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-title">
+                <h3>Categorías Destacadas</h3>
+                <p>Encuentra los mejores productos deportivos para tu disciplina favorita</p>
+            </div>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="retrato.png" alt="Running">
+                    <div class="category-content">
+                        <h4>Running</h4>
+                        <a href="#">Ver productos <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <img src="retrato.png" alt="Fútbol">
+                    <div class="category-content">
+                        <h4>Fútbol</h4>
+                        <a href="#">Ver productos <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <img src="retrato.png" alt="Fitness">
+                    <div class="category-content">
+                        <h4>Fitness</h4>
+                        <a href="#">Ver productos <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <img src="retrato.png" alt="Natación">
+                    <div class="category-content">
+                        <h4>Natación</h4>
+                        <a href="#">Ver productos <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Products -->
+    <section class="products">
+        <div class="container">
+            <div class="section-title">
+                <h3>Productos Destacados</h3>
+                <p>Lo más vendido y recomendado por nuestros clientes</p>
+            </div>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <span class="product-badge">NUEVO</span>
+                    <div class="product-image">
+                        <img src="inicio.png" alt="Camiseta DryFit">
+                        <div class="product-actions">
+                            <a href="#" class="action-btn"><i class="fas fa-eye"></i></a>
+                            <a href="#" class="action-btn"><i class="fas fa-heart"></i></a>
+                            <a href="#" class="action-btn"><i class="fas fa-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Running</div>
+                        <h3 class="product-title">Camiseta DryFit Pro</h3>
+                        <div class="product-price">
+                            <span class="current-price">$89.900</span>
+                            <span class="old-price">$109.900</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <div class="rating-count">(32)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="inicio.png" alt="Shorts Flex">
+                        <div class="product-actions">
+                            <a href="#" class="action-btn"><i class="fas fa-eye"></i></a>
+                            <a href="#" class="action-btn"><i class="fas fa-heart"></i></a>
+                            <a href="#" class="action-btn"><i class="fas fa-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Baloncesto</div>
+                        <h3 class="product-title">Shorts Flex Air</h3>
+                        <div class="product-price">
+                            <span class="current-price">$74.900</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">★★★★☆</div>
+                            <div class="rating-count">(21)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <span class="product-badge">-20%</span>
+                    <div class="product-image">
+                        <img src="inicio.png" alt="Leggings Pro">
+                        <div class="product-actions">
+                            <a href="#" class="action-btn"><i class="fas fa-eye"></i></a>
+                            <a href="#" class="action-btn"><i class="fas fa-heart"></i></a>
+                            <a href="#" class="action-btn"><i class="fas fa-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Fitness</div>
+                        <h3 class="product-title">Leggings Pro Fit</h3>
+                        <div class="product-price">
+                            <span class="current-price">$94.900</span>
+                            <span class="old-price">$119.900</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">★★★★★</div>
+                            <div class="rating-count">(45)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="inicio.png" alt="Zapatillas Running">
+                        <div class="product-actions">
+                            <a href="#" class="action-btn"><i class="fas fa-eye"></i></a>
+                            <a href="#" class="action-btn"><i class="fas fa-heart"></i></a>
+                            <a href="#" class="action-btn"><i class="fas fa-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Running</div>
+                        <h3 class="product-title">Zapatillas CloudStep</h3>
+                        <div class="product-price">
+                            <span class="current-price">$189.900</span>
+                        </div>
+                        <div class="product-rating">
+                            <div class="stars">★★★★☆</div>
+                            <div class="rating-count">(18)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-bg"></div>
+        <div class="container">
+            <div class="section-title">
+                <h3>¿Por qué elegir JudaviSport?</h3>
+                <p>Comprometidos con la calidad y satisfacción de nuestros clientes</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h4 class="feature-title">Envío Gratis</h4>
+                    <p class="feature-text">Envío gratuito en pedidos superiores a $150.000 en todo el país.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h4 class="feature-title">Devoluciones Fáciles</h4>
+                    <p class="feature-text">30 días para cambios o devoluciones sin complicaciones.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="feature-title">Garantía de Calidad</h4>
+                    <p class="feature-text">Productos de alta calidad con garantía de materiales y construcción.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4 class="feature-title">Soporte 24/7</h4>
+                    <p class="feature-text">Atención al cliente disponible todos los días para resolver tus dudas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h3>Lo que dicen nuestros clientes</h3>
+                <p>Experiencias reales de quienes confían en JudaviSport</p>
+            </div>
+            
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <div class="testimonial-image">
+                        <img src="inicio.png" alt="Cliente">
+                    </div>
+                    <p class="testimonial-text">La calidad de las prendas es excepcional. He comprado varias camisetas y shorts para mis entrenamientos de running y son muy cómodas. El servicio de envío también fue rápido y eficiente.</p>
+                    <h4 class="testimonial-name">Ana Rodríguez</h4>
+                    <p class="testimonial-position">Runner amateur</p>
+                </div>
+                
+                <div class="testimonial-dots">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-container">
+                <h3>Suscríbete a nuestro boletín</h3>
+                <p>Recibe noticias sobre nuevos productos, ofertas exclusivas y consejos deportivos directamente en tu bandeja de entrada.</p>
+                
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Tu correo electrónico">
+                    <button type="submit" class="newsletter-btn">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="inicio.png" alt="JudaviSport Logo">
+                        <h2>Judavi<span>Sport</span></h2>
+                    </div>
+                    <p>JudaviSport es una marca comprometida con la calidad y el rendimiento. Ofrecemos productos deportivos diseñados para atletas de todos los niveles, combinando innovación, comodidad y estilo.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h4 class="footer-title">Categorías</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Hombres</a></li>
+                        <li><a href="#">Mujeres</a></li>
+                        <li><a href="#">Niños</a></li>
+                        <li><a href="#">Calzado</a></li>
+                        <li><a href="#">Accesorios</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h4 class="footer-title">Enlaces</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Tiendas</a></li>
+                        <li><a href="#">Ayuda</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h4 class="footer-title">Contacto</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Calle Principal #123, Ciudad</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+57 300 123 4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@judavisport.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Lun - Sáb: 9:00AM - 7:00PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 JudaviSport. Todos los derechos reservados.</p>
+                
+                <div class="footer-bottom-links">
+                    <a href="#">Términos y condiciones</a>
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Métodos de pago</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            const icon = mobileToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Mobile Dropdown Toggle
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('.nav-link');
+            
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                    
+                    const icon = link.querySelector('i');
+                    if (dropdown.classList.contains('active')) {
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    } else {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                }
+            });
+        });
+        
+        // Header Scroll Effect
+        const header = document.querySelector('header');
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+                navbar.style.padding = '10px 0';
+            } else {
+                header.classList.remove('scrolled');
+                navbar.style.padding = '15px 0';
+            }
+        });
+        
+        // ScrollToTop Button
+        const scrollTopBtn = document.querySelector('.scroll-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('active');
+            } else {
+                scrollTopBtn.classList.remove('active');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Testimonial Slider
+        const dots = document.querySelectorAll('.dot');
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                // Remove active class from all dots
+                dots.forEach(d => d.classList.remove('active'));
+                
+                // Add active class to current dot
+                dot.classList.add('active');
+                
+                // In a real slider, you would update the testimonial here
+                // This is just a placeholder for demonstration
+                const testimonial = document.querySelector('.testimonial');
+                const testimonialTexts = [
+                    "La calidad de las prendas es excepcional. He comprado varias camisetas y shorts para mis entrenamientos de running y son muy cómodas. El servicio de envío también fue rápido y eficiente.",
+                    "JudaviSport ha superado mis expectativas. Los productos son excelentes y el soporte al cliente es increíble. Definitivamente seguiré comprando aquí para todas mis necesidades deportivas.",
+                    "Las zapatillas CloudStep son las mejores que he tenido para correr. Muy cómodas, ligeras y duraderas. El precio vale totalmente la pena por la calidad que ofrecen."
+                ];
+                
+                const testimonialNames = [
+                    "Ana Rodríguez",
+                    "Carlos Martínez",
+                    "Laura Gómez"
+                ];
+                
+                const testimonialPositions = [
+                    "Runner amateur",
+                    "Entrenador personal",
+                    "Atleta profesional"
+                ];
+                
+                testimonial.querySelector('.testimonial-text').textContent = testimonialTexts[index];
+                testimonial.querySelector('.testimonial-name').textContent = testimonialNames[index];
+                testimonial.querySelector('.testimonial-position').textContent = testimonialPositions[index];
+            });
+        });
+        
+        // Animation on Scroll (simplified version)
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.feature-card, .product-card, .category-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.feature-card, .product-card, .category-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'all 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
