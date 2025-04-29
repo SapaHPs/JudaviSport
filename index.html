@@ -266,28 +266,7 @@
             100% { opacity: 0; }
         }
 
-        /* Page Content (for demo purposes) */
-        .content {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
-            color: var(--dark);
-            opacity: 0;
-            transition: opacity 1s ease-in;
-        }
-
-        .content.show {
-            opacity: 1;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
+        
         /* Header and Navigation */
         header {
             background-color: #fff;
@@ -1470,10 +1449,7 @@
         </div>
     </div>
 
-    <!-- Page Content (for demo purposes) -->
-    <div class="content">
-        Tu contenido aquí...
-    </div>
+  
     <!-- Header -->
     <header>
         <div class="container">
@@ -1905,15 +1881,6 @@
                 document.querySelector('.preloader').classList.add('fade-out');
             }, 3500); // Fade out preloader after 3.5 seconds
         });
-
-        // For actual implementation, replace the above with:
-        /*
-        window.addEventListener('load', function() {
-            // Hide preloader once page is fully loaded
-            document.querySelector('.content').classList.add('show');
-            document.querySelector('.preloader').classList.add('fade-out');
-        });
-        */
         // Mobile Menu Toggle
         const mobileToggle = document.querySelector('.mobile-toggle');
         const navLinks = document.querySelector('.nav-links');
