@@ -32,7 +32,256 @@
             color: var(--dark);
             overflow-x: hidden;
         }
+         /* Preloader Styles */
+         .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
 
+        .preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Logo Animation */
+        .logo-container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        .logo-text {
+            position: absolute;
+            top: 110px;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        .logo-circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.5);
+            animation: scaleIn 0.6s ease-out forwards;
+        }
+
+        /* Animated sports equipment */
+        .sports-icon {
+            position: absolute;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+            color: white;
+            font-size: 24px;
+        }
+
+        #icon1 {
+            animation: moveIcon 5s infinite, fadeIn 0.3s 0.6s forwards;
+            color: var(--primary);
+        }
+
+        #icon2 {
+            animation: moveIcon 5s infinite 1.5s, fadeIn 0.3s 0.9s forwards;
+            color: var(--secondary);
+        }
+
+        #icon3 {
+            animation: moveIcon 5s infinite 3s, fadeIn 0.3s 1.2s forwards;
+            color: var(--accent);
+        }
+
+        /* Progress bar */
+        .loading-bar-container {
+            width: 200px;
+            height: 3px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 3px;
+            margin-top: 60px;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 0.5s 1.5s forwards;
+        }
+
+        .loading-bar {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            background-size: 200% 100%;
+            animation: gradientMove 2s linear infinite, loadingProgress 3s ease-out forwards;
+            border-radius: 3px;
+        }
+
+        .loading-text {
+            margin-top: 10px;
+            font-size: 14px;
+            color: var(--dark);
+            opacity: 0.7;
+            letter-spacing: 1px;
+            opacity: 0;
+            animation: fadeIn 0.5s 1.7s forwards;
+        }
+
+        /* Dynamic Swoosh Animation */
+        .swoosh {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,62,62,0.7) 0%, rgba(255,62,62,0) 70%);
+            opacity: 0;
+            transform: scale(0.5);
+            filter: blur(5px);
+        }
+
+        .swoosh-1 {
+            animation: swooshAnimation 3s ease-in-out infinite 0s, swooshFade 3s ease-in-out infinite 0s;
+        }
+
+        .swoosh-2 {
+            animation: swooshAnimation2 3s ease-in-out infinite 1s, swooshFade 3s ease-in-out infinite 1s;
+        }
+
+        .swoosh-3 {
+            animation: swooshAnimation3 3s ease-in-out infinite 2s, swooshFade 3s ease-in-out infinite 2s;
+        }
+
+        /* Inner circle with JS logo */
+        .logo-inner {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0);
+            animation: innerCircle 0.5s ease-out 0.3s forwards;
+        }
+
+        .logo-inner span {
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+            opacity: 0;
+            animation: fadeIn 0.3s ease-out 0.6s forwards;
+        }
+
+        /* Keyframes */
+        @keyframes scaleIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes innerCircle {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes moveIcon {
+            0% { top: 50%; left: 50%; }
+            25% { top: 30%; left: 70%; }
+            50% { top: 70%; left: 70%; }
+            75% { top: 70%; left: 30%; }
+            100% { top: 50%; left: 50%; }
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        @keyframes loadingProgress {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            80% { width: 90%; }
+            100% { width: 100%; }
+        }
+
+        @keyframes swooshAnimation {
+            0% { transform: translate(0, 0) scale(0.5); }
+            50% { transform: translate(100px, -40px) scale(2); }
+            100% { transform: translate(0, 0) scale(0.5); }
+        }
+
+        @keyframes swooshAnimation2 {
+            0% { transform: translate(0, 0) scale(0.5); }
+            50% { transform: translate(-80px, 60px) scale(1.8); }
+            100% { transform: translate(0, 0) scale(0.5); }
+        }
+
+        @keyframes swooshAnimation3 {
+            0% { transform: translate(0, 0) scale(0.5); }
+            50% { transform: translate(-50px, -80px) scale(1.5); }
+            100% { transform: translate(0, 0) scale(0.5); }
+        }
+
+        @keyframes swooshFade {
+            0% { opacity: 0; }
+            30% { opacity: 0.4; }
+            70% { opacity: 0.2; }
+            100% { opacity: 0; }
+        }
+
+        /* Page Content (for demo purposes) */
+        .content {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            color: var(--dark);
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+
+        .content.show {
+            opacity: 1;
+        }
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -167,6 +416,26 @@
             align-items: center;
             gap: 15px;
         }
+
+        .icon-link {
+        background: none;
+        border: none;
+        font-size: 20px;
+        color: var(--dark);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        text-decoration: none; /* Para quitar el subrayado predeterminado del enlace */
+        display: inline-flex; /* Para alinear el icono verticalmente si es necesario */
+        align-items: center;
+        justify-content: center; /* Opcional: para centrar el icono si el enlace tiene un tamaño */
+        padding: 0; /* Para quitar cualquier padding predeterminado del enlace */
+         }
+
+        .icon-link:hover {
+            color: var(--primary);
+        }
+
 
         .icon-btn {
             background: none;
@@ -1168,20 +1437,57 @@
     </style>
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <!-- Swoosh effects -->
+            <div class="swoosh swoosh-1"></div>
+            <div class="swoosh swoosh-2"></div>
+            <div class="swoosh swoosh-3"></div>
+            
+            <!-- Logo animation -->
+            <div class="logo-container">
+                <div class="logo-circle">
+                    <div class="logo-inner">
+                        <span>JDV</span>
+                    </div>
+                </div>
+                
+                <!-- Sports icons that move around -->
+                <i class="sports-icon fas fa-running" id="icon1"></i>
+                <i class="sports-icon fas fa-basketball-ball" id="icon2"></i>
+                <i class="sports-icon fas fa-futbol" id="icon3"></i>
+            </div>
+            
+            <!-- Brand name -->
+            <h2 class="logo-text">Judavi<span>Sport</span></h2>
+            
+            <!-- Loading bar -->
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+            </div>
+            <div class="loading-text">CARGANDO...</div>
+        </div>
+    </div>
+
+    <!-- Page Content (for demo purposes) -->
+    <div class="content">
+        Tu contenido aquí...
+    </div>
     <!-- Header -->
     <header>
         <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <img src="logo.png" alt="JudaviSport Logo">
+                    <a href="index.html"><img src="logo.png" alt="JudaviSport Logo"></a>
                     <h1>Judavi<span>Sport</span></h1>
                 </div>
-                
+    
                 <div class="nav-links">
                     <div class="nav-item">
                         <a href="#" class="nav-link">Inicio</a>
                     </div>
-                    
+    
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link">Hombres <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-menu">
@@ -1192,7 +1498,7 @@
                             <a href="#" class="dropdown-item">Calzado</a>
                         </div>
                     </div>
-                    
+    
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link">Mujeres <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-menu">
@@ -1203,7 +1509,7 @@
                             <a href="#" class="dropdown-item">Calzado</a>
                         </div>
                     </div>
-                    
+    
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link">Niños <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-menu">
@@ -1213,7 +1519,7 @@
                             <a href="#" class="dropdown-item">Calzado</a>
                         </div>
                     </div>
-                    
+    
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link">Deportes <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-menu">
@@ -1224,24 +1530,24 @@
                             <a href="#" class="dropdown-item">Fitness</a>
                         </div>
                     </div>
-                    
+    
                     <div class="nav-item">
                         <a href="#" class="nav-link">Contacto</a>
                     </div>
                 </div>
-                
+    
                 <div class="nav-icons">
-                    <button class="icon-btn">
+                    <a href="#" class="icon-link">
                         <i class="fas fa-search"></i>
-                    </button>
-                    <button class="icon-btn">
+                    </a>
+                    <a href="inicio_sesion.html" class="icon-link">
                         <i class="fas fa-user"></i>
-                    </button>
-                    <button class="icon-btn">
+                    </a>
+                    <a href="#" class="icon-link cart-button">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count">3</span>
-                    </button>
-                    
+                    </a>
+    
                     <button class="mobile-toggle">
                         <i class="fas fa-bars"></i>
                     </button>
@@ -1263,7 +1569,7 @@
                 <h2>POTENCIA TU RENDIMIENTO<br>CON JUDAVISPORT</h2>
                 <p>Descubre nuestra nueva colección diseñada para atletas de todos los niveles. Rendimiento, comodidad y estilo para llevar tu actividad física al siguiente nivel.</p>
                 <a href="#" class="btn">Comprar Ahora</a>
-                <a href="#" class="btn btn-outline">Ver Colección</a>
+                <a href="productos.html" class="btn btn-outline">Ver Colección</a>
             </div>
         </div>
         
@@ -1591,6 +1897,23 @@
     
     <!-- JavaScript -->
     <script>
+        // Simulate loading time for demo purposes
+        window.addEventListener('load', function() {
+            // Show the content
+            setTimeout(function() {
+                document.querySelector('.content').classList.add('show');
+                document.querySelector('.preloader').classList.add('fade-out');
+            }, 3500); // Fade out preloader after 3.5 seconds
+        });
+
+        // For actual implementation, replace the above with:
+        /*
+        window.addEventListener('load', function() {
+            // Hide preloader once page is fully loaded
+            document.querySelector('.content').classList.add('show');
+            document.querySelector('.preloader').classList.add('fade-out');
+        });
+        */
         // Mobile Menu Toggle
         const mobileToggle = document.querySelector('.mobile-toggle');
         const navLinks = document.querySelector('.nav-links');
