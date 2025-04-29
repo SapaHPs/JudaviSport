@@ -32,8 +32,14 @@
             color: var(--dark);
             overflow-x: hidden;
         }
-         /* Preloader Styles */
-         .preloader {
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        /* Preloader Styles */
+        .preloader {
             position: fixed;
             top: 0;
             left: 0;
@@ -265,8 +271,6 @@
             70% { opacity: 0.2; }
             100% { opacity: 0; }
         }
-
-        
         /* Header and Navigation */
         header {
             background-color: #fff;
@@ -1416,8 +1420,8 @@
     </style>
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader">
+     <!-- Preloader -->
+     <div class="preloader">
         <div class="preloader-content">
             <!-- Swoosh effects -->
             <div class="swoosh swoosh-1"></div>
@@ -1428,7 +1432,7 @@
             <div class="logo-container">
                 <div class="logo-circle">
                     <div class="logo-inner">
-                        <span>JDV</span>
+                        <span>JS</span>
                     </div>
                 </div>
                 
@@ -1448,8 +1452,6 @@
             <div class="loading-text">CARGANDO...</div>
         </div>
     </div>
-
-  
     <!-- Header -->
     <header>
         <div class="container">
@@ -1877,7 +1879,7 @@
         window.addEventListener('load', function() {
             // Show the content
             setTimeout(function() {
-                document.querySelector('.content').classList.add('show');
+                document.querySelector('.container').classList.add('show');
                 document.querySelector('.preloader').classList.add('fade-out');
             }, 3500); // Fade out preloader after 3.5 seconds
         });
